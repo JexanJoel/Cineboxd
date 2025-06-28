@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personal Notes</title>
+  <link rel="stylesheet" href="notes.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">🎬 Cineboxd</div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="notes.html">Notes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button id="themeToggle" onclick="toggleTheme()">🌙</button>
+    </nav>
+  </header>
+
+  <main class="notes-container">
+    <h1>🎬 Personal Movie Notes</h1>
+
+    <label for="movieSelect">Choose a movie:</label>
+    <select id="movieSelect">
+      <option value="Inception">Inception</option>
+      <option value="The Dark Knight">The Dark Knight</option>
+      <option value="Interstellar">Interstellar</option>
+      <option value="Kill Bill: Vol. 1">Kill Bill: Vol.1</option>
+      <option value="Pulp Fiction">Pulp Fiction</option>
+      <option value="Oppenheimer">Oppenheimer</option>
+      <option value="Barbie">Barbie</option>
+      <option value="Fight Club">Fight Club</option>
+      <option value="The Godfather">The Godfather</option>
+      <option value="La La Land">La La Land</option>
+      <option value="The Shawshank Redemption">The Shawshank Redemption</option>
+      <option value="Devil's Advocate">Devil's Advocate</option>
+      <option value="The Matrix">The Matrix</option>
+    </select>
+
+    <label for="movieNote">Your Note:</label>
+    <textarea id="movieNote" rows="5" placeholder="Write your thoughts..."></textarea>
+
+    <button onclick="saveNote()">💾 Save Note</button>
+
+    <h2>📚 Saved Notes</h2>
+    <ul id="notesList"></ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>Crafted with ❤️ <strong>Made by Jexan Joel & Smrithi P</strong></p>
+    <p>© 2025 Cineboxd</p>
+  </footer>
+
+  <script src="notes.js"></script>
+</body>
+</html>

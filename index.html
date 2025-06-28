@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cineboxd</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="logo">🎬 Cineboxd</div>
+    <button class="menu-toggle" id="menuToggle">&#9776;</button>
+    <nav id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="notes.html">Notes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button id="themeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Welcome to Cineboxd</h1>
+    <p>Log, Rate & Discover your favorite movies</p>
+    <button class="browse-btn" onclick="window.location.href='browse.html'">🎥 Browse Collection</button>
+  </section>
+
+  <section class="carousel-container">
+    <div class="carousel-track" id="movieCarousel">
+      <!-- Movies will be loaded here dynamically -->
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <p>Crafted with ❤️ Made by <strong>Jexan Joel</strong> & <strong>Smrithi P</strong></p>
+    <p>© 2025 Cineboxd</p>
+  </footer>
+
+  <script>
+    const sampleMovies = [
+      { poster: "images/the-godfather.png" },
+      { poster: "images/la-la-land.png" },
+      { poster: "images/barbie.png" },
+      { poster: "images/pulp-fiction.png" },
+      { poster: "images/fight-club.png" },
+      { poster: "images/HTLAGITD.png" },
+      { poster: "images/kill-bill-vol1.png" },
+      { poster: "images/dark-knight.png" },
+      { poster: "images/inception.jpeg" }
+    ];
+
+    function loadMovieCarousel() {
+      const carousel = document.getElementById('movieCarousel');
+      const doubledMovies = [...sampleMovies, ...sampleMovies];
+      doubledMovies.forEach(movie => {
+        const movieCard = document.createElement('div');
+        movieCard.className = 'movie-card';
+        movieCard.innerHTML = `<img src="${movie.poster}" alt="Movie Poster" />`;
+        carousel.appendChild(movieCard);
+      });
+    }
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      themeToggle.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
+    });
+
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('show');
+    });
+
+    document.addEventListener('DOMContentLoaded', loadMovieCarousel);
+  </script>
+</body>
+</html>

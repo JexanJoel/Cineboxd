@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">🎬 Cineboxd</div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+    <nav id="navMenu">
+      <a href="index.html">Home</a>
+      <a href="browse.html">Browse</a>
+      <a href="watchlist.html">Watchlist</a>
+      <a href="notes.html">Notes</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <button class="theme-toggle" id="themeToggle">🌙</button>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="card">
+      <h1>About MovieBox</h1>
+      <p><strong>MovieBox</strong> is a static website made for movie lovers who want to keep track of films, maintain a personal watchlist, and write private notes—all in the browser with no sign-in required.</p>
+      <p>The platform is entirely static and built with HTML, CSS, and JavaScript. It uses <strong>localStorage</strong> to save data locally on your device, giving you speed, privacy, and simplicity.</p>
+      <p>More features like ratings, filters, and genre sorting will be added soon as we continue improving MovieBox!</p>
+    </div>
+
+    <div class="card">
+      <h2 class="team-title">Team Members</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <h3>Jexan Joel</h3>
+          <p><strong>Role:</strong> Web & App Developer</p>
+          <p><strong>Education:</strong> Final Year, B.E. CSE</p>
+          <p><strong>College:</strong> Meenakshi College of Engineering</p>
+        </div>
+        <div class="team-member">
+          <h3>Smrithi P</h3>
+          <p><strong>Role:</strong> Designer & Developer</p>
+          <p><strong>Education:</strong> Pre-Final Year, B.E. CSE</p>
+          <p><strong>College:</strong> MNM Jain College of Engineering</p>
+        </div>
+      </div>
+    </div>     
+
+  </div>
+
+  <footer class="site-footer">
+    <p>Crafted with ❤️ by <strong>Jexan Joel</strong> & <strong>Smrithi P</strong></p>
+    <p>© 2025 Cineboxd</p>
+  </footer>
+
+  <script>
+    const themeBtn = document.getElementById("themeToggle");
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    themeBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      themeBtn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+    });
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+    });
+
+    // Optional: Close nav when a link is clicked (for mobile)
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+      });
+    });
+  </script>
+</body>
+</html>

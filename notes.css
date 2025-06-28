@@ -1,0 +1,289 @@
+:root {
+  --royal-blue-1: #1e3a8a;
+  --royal-blue-2: #3b82f6;
+  --royal-blue-3: #60a5fa;
+  --royal-blue-4: #93c5fd;
+
+  --bg: linear-gradient(135deg, #f0f4ff 0%, #e6efff 50%, #dde7ff 100%);
+  --bg-solid: #f0f4ff;
+  --text: #1e293b;
+  --text-secondary: #475569;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-hover: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(255, 255, 255, 0.3);
+  --btn-bg: linear-gradient(135deg, var(--royal-blue-1), var(--royal-blue-2));
+  --btn-text: #ffffff;
+  --primary: var(--btn-bg);
+  --primary-hover: linear-gradient(135deg, var(--royal-blue-2), var(--royal-blue-3));
+  --navbar-bg: linear-gradient(135deg, var(--royal-blue-1), var(--royal-blue-2), var(--royal-blue-3));
+  --navbar-glass: rgba(30, 58, 138, 0.9);
+  --accent: #fbbf24;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --shadow-light: rgba(59, 130, 246, 0.15);
+  --shadow-medium: rgba(59, 130, 246, 0.25);
+  --btn-shadow: rgba(65, 105, 225, 0.4);
+  --input-bg: rgba(255, 255, 255, 0.6);
+  --input-border: rgba(59, 130, 246, 0.3);
+}
+
+body.dark {
+  --bg: linear-gradient(135deg, #0f0f23, #1a1a2e, #16213e);
+  --bg-solid: #0f0f23;
+  --text: #f1f5f9;
+  --text-secondary: #dee8f4;
+  --card-bg: rgba(12, 24, 44, 0.7);
+  --card-hover: rgba(51, 65, 85, 0.8);
+  --card-border: rgba(59, 130, 246, 0.2);
+  --navbar-bg: linear-gradient(135deg, #0c1426, var(--royal-blue-1), #1e293b);
+  --navbar-glass: rgba(15, 23, 42, 0.9);
+  --glass-bg: rgba(30, 41, 59, 0.4);
+  --glass-border: rgba(59, 130, 246, 0.3);
+  --input-bg: #313159;
+  --input-border: rgba(59, 130, 246, 0.4);
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+  background: var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.site-header {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 8px 32px var(--shadow-light);
+}
+
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--navbar-glass);
+  z-index: -1;
+}
+
+.site-header .logo {
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff, var(--royal-blue-4));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: white;
+  background: none;
+  border: none;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+nav a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: 0.3s ease;
+  position: relative;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+#themeToggle {
+  background: var(--btn-bg);
+  margin-bottom: 10px;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px var(--btn-shadow);
+}
+
+#themeToggle:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Notes Container */
+.notes-container {
+  max-width: 800px;
+  margin: 100px auto 160px;
+  padding: 40px;
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px var(--shadow-light);
+}
+
+.notes-container h1 {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  background: var(--primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.notes-container label {
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+}
+
+select,
+textarea {
+  width: 100%;
+  padding: 16px 20px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+button {
+  padding: 14px 30px;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+  margin-bottom: 40px; /* Space between Save button and Saved Notes */
+}
+
+button:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+#notesList {
+  list-style: none;
+  margin-top: 20px;
+  padding: 0;
+}
+
+#notesList li {
+  background: var(--card-hover);
+  border: 1px solid var(--card-border);
+  padding: 20px;
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+.site-footer {
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  padding: 50px 20px;
+  color: #f1f5f9;
+  text-align: center;
+  font-size: 1rem;
+  border-top: 2px solid var(--royal-blue-2);
+  box-shadow: 0 -8px 32px rgba(59, 130, 246, 0.15);
+}
+
+.site-footer p {
+  margin: 12px 0;
+  color: rgba(241, 245, 249, 0.8);
+}
+
+.site-footer strong {
+  color: var(--accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 15px 5%;
+    flex-wrap: wrap;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background: var(--navbar-glass);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a,
+  #themeToggle {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+  }
+
+  .notes-container {
+    margin: 80px 5% 160px;
+    padding: 25px 20px;
+  }
+}
+
+/* Scroll & selection enhancements */
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--royal-blue-2);
+  border-radius: 4px;
+}
